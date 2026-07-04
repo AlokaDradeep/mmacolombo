@@ -3657,7 +3657,8 @@ img {
   }
 
   .coach-grid-home,
-  .grading-grid {
+  .grading-grid,
+  .class-layout-grid {
     grid-template-columns: none;
     grid-auto-flow: column;
     grid-auto-columns: minmax(84%, 84%);
@@ -3670,13 +3671,15 @@ img {
 
   .coach-grid-home::-webkit-scrollbar,
   .grading-grid::-webkit-scrollbar,
+  .class-layout-grid::-webkit-scrollbar,
   .package-slider-row::-webkit-scrollbar,
   .feature-slider-row::-webkit-scrollbar {
     display: none;
   }
 
   .coach-profile-card,
-  .grading-card {
+  .grading-card,
+  .class-layout-card {
     scroll-snap-align: start;
   }
 
