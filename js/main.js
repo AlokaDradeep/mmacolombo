@@ -26,6 +26,48 @@
         });
     }
 
+    function initSiteNavigation() {
+        var currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        var classPages = ['nugegoda.html', 'wattala.html', 'gallary.html'];
+
+        $('.navbar-toggler').attr({
+            'aria-label': 'Toggle navigation',
+            'aria-controls': 'navbarCollapse',
+            'aria-expanded': 'false'
+        });
+
+        $('.navbar .nav-link, .navbar .dropdown-item').each(function () {
+            var href = (($(this).attr('href') || '').split('#')[0]).toLowerCase();
+            if (href === currentPage) {
+                $(this).addClass('active').attr('aria-current', 'page');
+            } else if (href && href !== '#') {
+                $(this).removeClass('active').removeAttr('aria-current');
+            }
+        });
+
+        if (classPages.indexOf(currentPage) !== -1) {
+            $('.navbar .dropdown > .nav-link').addClass('active');
+        }
+
+        $('#navbarCollapse')
+            .on('show.bs.collapse', function () {
+                $('.navbar-toggler').attr('aria-expanded', 'true');
+            })
+            .on('hide.bs.collapse', function () {
+                $('.navbar-toggler').attr('aria-expanded', 'false');
+            });
+
+        $('.navbar-collapse a:not(.dropdown-toggle)').on('click', function () {
+            if (window.innerWidth < 992 && typeof bootstrap !== 'undefined') {
+                var collapseElement = document.getElementById('navbarCollapse');
+                var collapse = bootstrap.Collapse.getInstance(collapseElement);
+                if (collapse) {
+                    collapse.hide();
+                }
+            }
+        });
+    }
+
     function initCarousel(selector, options) {
         if ($.fn.owlCarousel && $(selector).length) {
             $(selector).owlCarousel(options);
@@ -96,6 +138,7 @@
     hideSpinner();
     initWow();
     initStickyNavbar();
+    initSiteNavigation();
     initCarousel('.header-carousel', {
         animateOut: 'fadeOut',
         items: 1,
