@@ -5829,6 +5829,11 @@ body.coach-modal-open {
   background: rgba(225, 6, 0, 0.16);
 }
 
+.sticky-top.navbar-light .navbar-nav .dropdown-toggle,
+.sticky-top.navbar-light .navbar-nav .dropdown-toggle span {
+  color: #fff;
+}
+
 .navbar-light .navbar-nav .nav-link::before,
 .navbar-light .navbar-nav .nav-link::after {
   display: none;
