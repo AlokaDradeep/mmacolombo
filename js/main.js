@@ -57,7 +57,7 @@
                 $('.navbar-toggler').attr('aria-expanded', 'false');
             });
 
-        $('.navbar-collapse a:not(.dropdown-toggle)').on('click', function () {
+        $('.navbar-collapse a:not([data-bs-toggle="dropdown"])').on('click', function () {
             if (window.innerWidth < 992 && typeof bootstrap !== 'undefined') {
                 var collapseElement = document.getElementById('navbarCollapse');
                 var collapse = bootstrap.Collapse.getInstance(collapseElement);
