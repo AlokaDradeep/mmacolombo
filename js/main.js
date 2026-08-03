@@ -106,9 +106,13 @@
         ],
         responsive: {
             0: {
+                autoplay: false,
+                loop: false,
                 nav: false
             },
             768: {
+                autoplay: true,
+                loop: true,
                 nav: true
             }
         }

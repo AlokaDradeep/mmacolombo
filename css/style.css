@@ -843,6 +843,16 @@
 /*** Navbar End ***/
 
 /*** Carousel Hero Header Start ***/
+.header-carousel.owl-carousel {
+    display: block;
+    height: clamp(620px, 92vh, 780px);
+    overflow: hidden;
+}
+
+.header-carousel:not(.owl-loaded) > .header-carousel-item:not(:first-child) {
+    display: none;
+}
+
 .header-carousel .header-carousel-item img {
     object-fit: cover;
 }
@@ -932,6 +942,10 @@
 }
 
 @media (max-width: 991.98px) {
+  .header-carousel.owl-carousel {
+    height: 680px;
+  }
+
   .carousel-person {
     bottom: -3%;
     width: min(48vw, 330px);
@@ -1087,24 +1101,8 @@
 
 
 .header-carousel .header-carousel-item img {
-    animation-name: image-zoom;
-    animation-duration: 10s;
-    animation-delay: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    transition: 1s;
-}
-
-@keyframes image-zoom {
-    0%  {height: 100%; opacity: 0.9;}
-
-    25% {height: 110%; opacity: 0.50;}
-
-    50% {height: 115%; opacity: 1;}
-
-    75% {height: 110%; opacity: 0.50;}
-
-    100% {height: 100%; opacity: 0.9;}
+    opacity: 0.9;
+    transform: scale(1.01);
 }
 /*** Carousel Hero Header End ***/
 
@@ -3954,6 +3952,10 @@ img {
 }
 
 @media (max-width: 767.98px) {
+  .header-carousel.owl-carousel {
+    height: 760px;
+  }
+
   .management-grid {
     grid-template-columns: 1fr;
   }
@@ -5108,9 +5110,23 @@ img {
 }
 
 @media (max-width: 575.98px) {
+  .page-hero::after,
+  .hero-copy {
+    animation: none;
+  }
+
+  .header-carousel.owl-carousel {
+    height: 840px;
+  }
+
   .header-carousel .header-carousel-item,
   .header-carousel .header-carousel-item img {
     height: 840px;
+  }
+
+  .header-carousel .header-carousel-item > img {
+    animation: none;
+    transform: scale(1.01);
   }
 
   .header-carousel .header-carousel-item .carousel-caption {
