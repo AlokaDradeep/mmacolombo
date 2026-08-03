@@ -4928,11 +4928,14 @@ img {
   .package-slider-row,
   .feature-slider-row {
     flex-wrap: nowrap;
+    justify-content: flex-start !important;
     overflow-x: auto;
+    overflow-y: hidden;
     margin-left: 0;
     margin-right: 0;
     padding: 0 0.25rem 1rem;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
+    touch-action: pan-x pan-y;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
