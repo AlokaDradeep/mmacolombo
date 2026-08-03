@@ -3135,6 +3135,15 @@ img {
   padding-bottom: 0.8rem;
 }
 
+.home-page .home-content-section {
+  padding-top: clamp(3.25rem, 5vw, 4.5rem) !important;
+  padding-bottom: clamp(3.25rem, 5vw, 4.5rem) !important;
+}
+
+.home-page .home-content-section .text-center > .home-section-title:last-child {
+  margin-bottom: 2rem !important;
+}
+
 .home-section-title::after {
   content: "";
   position: absolute;
@@ -4885,6 +4894,11 @@ img {
 }
 
 @media (max-width: 767.98px) {
+  .home-page .home-content-section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
   .home-classes-section {
     padding-bottom: 1.25rem !important;
   }
