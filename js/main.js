@@ -29,6 +29,39 @@
     function initSiteNavigation() {
         var currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
         var classPages = ['nugegoda.html', 'wattala.html', 'gallary.html'];
+        var mobileNavScrollY = 0;
+
+        if (!$('.mobile-nav-backdrop').length) {
+            $('<div class="mobile-nav-backdrop" aria-hidden="true"></div>').appendTo('body');
+        }
+
+        function lockMobilePageScroll() {
+            mobileNavScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+            $('html, body').addClass('mobile-nav-open');
+            $('body').css({
+                position: 'fixed',
+                top: -mobileNavScrollY + 'px',
+                left: 0,
+                right: 0,
+                width: '100%'
+            });
+        }
+
+        function unlockMobilePageScroll() {
+            if (!$('body').hasClass('mobile-nav-open')) {
+                return;
+            }
+
+            $('html, body').removeClass('mobile-nav-open');
+            $('body').css({
+                position: '',
+                top: '',
+                left: '',
+                right: '',
+                width: ''
+            });
+            window.scrollTo(0, mobileNavScrollY);
+        }
 
         $('.navbar-toggler').attr({
             'aria-label': 'Toggle navigation',
@@ -51,11 +84,38 @@
 
         $('#navbarCollapse')
             .on('show.bs.collapse', function () {
+                lockMobilePageScroll();
                 $('.navbar-toggler').attr('aria-expanded', 'true');
             })
-            .on('hide.bs.collapse', function () {
+            .on('hidden.bs.collapse', function () {
+                unlockMobilePageScroll();
                 $('.navbar-toggler').attr('aria-expanded', 'false');
             });
+
+        $(window).on('resize', function () {
+            if (window.innerWidth >= 992) {
+                unlockMobilePageScroll();
+            }
+        });
+
+        $(document).on('click', function (event) {
+            if (window.innerWidth >= 992 || !$('body').hasClass('mobile-nav-open')) {
+                return;
+            }
+
+            if ($(event.target).closest('#navbarCollapse, .navbar-toggler').length) {
+                return;
+            }
+
+            var collapseElement = document.getElementById('navbarCollapse');
+            var collapse = collapseElement && typeof bootstrap !== 'undefined'
+                ? bootstrap.Collapse.getInstance(collapseElement)
+                : null;
+
+            if (collapse) {
+                collapse.hide();
+            }
+        });
 
         $('.navbar-collapse a:not([data-bs-toggle="dropdown"])').on('click', function () {
             if (window.innerWidth < 992 && typeof bootstrap !== 'undefined') {
