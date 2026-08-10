@@ -28,7 +28,7 @@
 
     function initSiteNavigation() {
         var currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
-        var classPages = ['nugegoda.html', 'wattala.html', 'gallary.html'];
+        var classPages = ['nugegoda.html', 'wattala.html', 'gallery.html'];
         var mobileNavScrollY = 0;
 
         if (!$('.mobile-nav-backdrop').length) {
@@ -70,7 +70,7 @@
         });
 
         $('.navbar .nav-link, .navbar .dropdown-item').each(function () {
-            var href = (($(this).attr('href') || '').split('#')[0]).toLowerCase();
+                var href = (($(this).attr('href') || '').split('#')[0].split('/').pop() || 'index.html').toLowerCase();
             if (href === currentPage) {
                 $(this).addClass('active').attr('aria-current', 'page');
             } else if (href && href !== '#') {
