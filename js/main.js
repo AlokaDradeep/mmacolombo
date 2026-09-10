@@ -26,16 +26,6 @@
         });
     }
 
-    function normalizeInternalLinks() {
-        $('a[href^="/"]').each(function () {
-            var href = $(this).attr('href');
-
-            if (href && href.indexOf('//') !== 0) {
-                $(this).attr('href', href.substring(1) || 'index.html');
-            }
-        });
-    }
-
     function initSiteNavigation() {
         var currentPage = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
         var classPages = ['nugegoda.html', 'wattala.html', 'gallery.html'];
@@ -156,7 +146,6 @@
     hideSpinner();
     initWow();
     initStickyNavbar();
-    normalizeInternalLinks();
     initSiteNavigation();
     initCarousel('.header-carousel', {
         animateOut: 'fadeOut',
