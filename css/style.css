@@ -4711,8 +4711,11 @@ body.home-page {
   overflow-y: auto;
   color: rgba(255, 255, 255, 0.76);
   line-height: 1.55;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(225, 6, 0, 0.65) rgba(255, 255, 255, 0.05);
+  scrollbar-width: none;
+}
+
+.coach-profile-card__list::-webkit-scrollbar {
+  display: none;
 }
 
 .coach-profile-card__list li::marker {
@@ -5698,6 +5701,138 @@ body.home-page {
   .hero-chip {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Keep mobile pages calm, readable and aligned. */
+@media (max-width: 767.98px) {
+  body:not(.home-page) .page-hero {
+    min-height: auto;
+    padding: 116px 0 54px;
+  }
+
+  body:not(.home-page) .page-hero .container,
+  body:not(.home-page) .mma-section > .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  body:not(.home-page) .hero-copy {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 0.25rem;
+  }
+
+  body:not(.home-page) .hero-copy h1 {
+    margin-bottom: 1.1rem;
+    font-size: clamp(2.65rem, 12vw, 4.25rem);
+    line-height: 0.98;
+  }
+
+  body:not(.home-page) .hero-copy p {
+    max-width: 34rem;
+    margin-bottom: 1.35rem;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  body:not(.home-page) .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  body:not(.home-page) .hero-actions .btn {
+    width: 100%;
+    padding: 0.85rem 1rem !important;
+  }
+
+  body:not(.home-page) .breadcrumb-nav {
+    margin-top: 1.25rem;
+  }
+
+  body:not(.home-page) .mma-section {
+    padding: 3.25rem 0;
+  }
+
+  body:not(.home-page) .mma-section h2,
+  body:not(.home-page) .mma-section h3 {
+    line-height: 1.08;
+  }
+
+  body:not(.home-page) .mma-section h2.display-5,
+  body:not(.home-page) .section-intro h2 {
+    margin-bottom: 1rem !important;
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  body:not(.home-page) .mma-section p,
+  body:not(.home-page) .mma-section li {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  body:not(.home-page) .section-intro,
+  body:not(.home-page) .management-section .text-center[style] {
+    margin-bottom: 2rem !important;
+    text-align: left !important;
+  }
+
+  body:not(.home-page) .pill-list {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  body:not(.home-page) .pill-list li {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+  }
+
+  body:not(.home-page) .split-media {
+    border-radius: 14px;
+  }
+
+  body:not(.home-page) .split-media img {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
+  body:not(.home-page) .management-card {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+
+  body:not(.home-page) .management-card--founder {
+    padding: 0;
+  }
+
+  body:not(.home-page) .management-founder__media,
+  body:not(.home-page) .management-founder__media img {
+    min-height: 270px;
+    height: 270px;
+  }
+
+  body:not(.home-page) .management-founder__content {
+    padding: 1.35rem;
+  }
+
+  body:not(.home-page) .management-founder__highlights,
+  body:not(.home-page) .management-card__actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  body:not(.home-page) .management-founder__highlights span,
+  body:not(.home-page) .management-card__actions a {
+    width: 100%;
+  }
+
+  body:not(.home-page) .cta-panel {
+    padding: 1.35rem;
+    border-radius: 14px;
   }
 }
 /*** Coaches Page ***/
@@ -6924,17 +7059,11 @@ body::-webkit-scrollbar,
   overflow-x: hidden;
   overflow-y: auto;
   background: rgba(0, 0, 0, 0.7);
-  scrollbar-width: thin;
-  scrollbar-color: rgba(225, 6, 0, 0.8) transparent;
+  scrollbar-width: none;
 }
 
 .home-page .header-carousel .header-carousel-item .carousel-caption::-webkit-scrollbar {
-  width: 5px;
-}
-
-.home-page .header-carousel .header-carousel-item .carousel-caption::-webkit-scrollbar-thumb {
-  background: rgba(225, 6, 0, 0.8);
-  border-radius: 999px;
+  display: none;
 }
 
 .home-page .header-carousel .hero-layout__content {
@@ -7086,6 +7215,43 @@ body::-webkit-scrollbar,
   .home-page .header-carousel .header-carousel-item,
   .home-page .header-carousel .header-carousel-item img {
     height: clamp(660px, calc(100svh - 34px), 820px);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .home-page .header-carousel .header-carousel-item .carousel-caption {
+    justify-content: center;
+    align-items: center;
+    padding: 5.5rem 1rem 4.75rem;
+  }
+
+  .home-page .header-carousel .header-carousel-item .carousel-caption > .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .home-page .header-carousel .hero-layout--split {
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .home-page .header-carousel .hero-layout--split > [class*="col-"] {
+    width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .home-page .header-carousel .hero-layout__content {
+    width: min(100%, 350px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.15rem 1rem 1.25rem;
+    border-left: 0;
+    border-top: 2px solid var(--bs-danger);
+    text-align: center;
   }
 }
 

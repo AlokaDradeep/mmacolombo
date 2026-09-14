@@ -92,55 +92,55 @@
                 $('.navbar-toggler').attr('aria-expanded', 'false');
             });
 
-        $(window).on('resize', function () {
-            if (window.innerWidth >= 992) {
-                unlockMobilePageScroll();
-            }
-        });
-
-        $(document).on('click', function (event) {
-            if (window.innerWidth >= 992 || !$('body').hasClass('mobile-nav-open')) {
+            var total = safeReviews.reduce(function (sum, review) { return sum + Number(review.rating || 0); }, 0);
+            var average = safeReviews.length ? (total / safeReviews.length).toFixed(1) : '0.0';
+            $('#reviews-average').text(average);
+            $('#reviews-count').text(safeReviews.length);
+            if (!safeReviews.length) {
+                list.innerHTML = '<p class="reviews-status">No reviews yet. Be the first to share your experience.</p>';
                 return;
             }
-
-            if ($(event.target).closest('#navbarCollapse, .navbar-toggler').length) {
-                return;
-            }
-
-            var collapseElement = document.getElementById('navbarCollapse');
-            var collapse = collapseElement && typeof bootstrap !== 'undefined'
-                ? bootstrap.Collapse.getInstance(collapseElement)
-                : null;
-
-            if (collapse) {
-                collapse.hide();
-            }
-        });
-
-        $('.navbar-collapse a:not([data-bs-toggle="dropdown"])').on('click', function () {
-            if (window.innerWidth < 992 && typeof bootstrap !== 'undefined') {
-                var collapseElement = document.getElementById('navbarCollapse');
-                var collapse = bootstrap.Collapse.getInstance(collapseElement);
-                if (collapse) {
-                    collapse.hide();
-                }
-            }
-        });
-    }
-
-    function initCarousel(selector, options) {
-        if ($.fn.owlCarousel && $(selector).length) {
-            $(selector).owlCarousel(options);
+            list.innerHTML = safeReviews.slice(0, 6).map(function (review) {
+                var rating = Math.max(1, Math.min(5, Number(review.rating) || 5));
+                return '<article class="review-card"><div class="review-card__top"><strong>' + escapeHtml(review.name) + '</strong><span class="review-card__stars" aria-label="' + rating + ' out of 5 stars">' + '★'.repeat(rating) + '</span></div><p>' + escapeHtml(review.message) + '</p><time datetime="' + escapeHtml(review.date) + '">' + new Date(review.date).toLocaleDateString('en-LK', { year: 'numeric', month: 'short', day: 'numeric' }) + '</time></article>';
+            }).join('');
         }
-    }
 
-    function initCounterUp() {
-        if ($.fn.counterUp && $('[data-toggle="counter-up"]').length) {
-            $('[data-toggle="counter-up"]').counterUp({
-                delay: 5,
-                time: 2000
+        function loadReviews() {
+            if (!endpoint) {
+                renderReviews(readLocalReviews());
+                return;
+            }
+            fetch(endpoint).then(function (response) { return response.json(); }).then(renderReviews).catch(function () {
+                renderReviews(readLocalReviews());
             });
         }
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var status = document.getElementById('review-form-status');
+            var review = {
+                name: form.elements.name.value.trim(),
+                rating: Number(form.elements.rating.value),
+                message: form.elements.message.value.trim(),
+                date: new Date().toISOString().slice(0, 10)
+            };
+            var reviews = readLocalReviews();
+            reviews.unshift(review);
+            status.textContent = 'Publishing...';
+            var request = endpoint ? fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(review) }) : Promise.resolve({ ok: true });
+            request.then(function (response) {
+                if (!response.ok) { throw new Error('Review submission failed'); }
+                localStorage.setItem(storageKey, JSON.stringify(reviews));
+                renderReviews(reviews);
+                form.reset();
+                status.textContent = endpoint ? 'Thank you. Your review is now live.' : 'Review added on this device. Connect the live endpoint to share it everywhere.';
+            }).catch(function () {
+                status.textContent = 'Could not publish right now. Please try again.';
+            });
+        });
+
+        loadReviews();
     }
 
     hideSpinner();
