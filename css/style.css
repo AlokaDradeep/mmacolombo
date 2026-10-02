@@ -861,6 +861,10 @@ body.home-page .faq-card {
 /*** Navbar End ***/
 
 /*** Carousel Hero Header Start ***/
+.header-carousel.owl-rtl .owl-item {
+  direction: ltr;
+}
+
 .header-carousel.owl-carousel {
     display: block;
     height: clamp(620px, 92vh, 780px);
