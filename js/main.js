@@ -4,7 +4,7 @@
     function hideSpinner() {
         window.setTimeout(function () {
             var spinner = $('#spinner');
-            if (spinner.length) {
+            if (spinner.length && !spinner.hasClass('home-intro')) {
                 spinner.removeClass('show');
             }
         }, 1);
@@ -116,7 +116,7 @@
         items: 1,
         margin: 0,
         stagePadding: 0,
-        autoplay: !reducedMotion.matches,
+        autoplay: !reducedMotion.matches && !document.documentElement.classList.contains('intro-active'),
         autoplayTimeout: 2000,
         autoplayHoverPause: true,
         smartSpeed: reducedMotion.matches ? 0 : 900,
@@ -132,12 +132,12 @@
         ],
         responsive: {
             0: {
-                autoplay: !reducedMotion.matches,
+                autoplay: !reducedMotion.matches && !document.documentElement.classList.contains('intro-active'),
                 loop: true,
                 nav: false
             },
             768: {
-                autoplay: !reducedMotion.matches,
+                autoplay: !reducedMotion.matches && !document.documentElement.classList.contains('intro-active'),
                 loop: true,
                 nav: true
             }
@@ -148,7 +148,8 @@
     var paused = reducedMotion.matches;
 
     function updateHeroPlayback() {
-        heroCarousel.trigger(paused ? 'stop.owl.autoplay' : 'play.owl.autoplay', [2000]);
+        var introActive = document.documentElement.classList.contains('intro-active');
+        heroCarousel.trigger(paused || introActive ? 'stop.owl.autoplay' : 'play.owl.autoplay', [2000]);
         motionToggle.text(paused ? 'Play' : 'Pause')
             .attr('aria-label', paused ? 'Play slideshow' : 'Pause slideshow')
             .attr('aria-pressed', String(paused));
@@ -158,6 +159,7 @@
         paused = !paused;
         updateHeroPlayback();
     });
+    document.addEventListener('homeintro:end', updateHeroPlayback);
     heroCarousel.on('focusin', function () { heroCarousel.trigger('stop.owl.autoplay'); });
     heroCarousel.on('focusout', function () {
         window.setTimeout(function () {

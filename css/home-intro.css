@@ -1,0 +1,146 @@
+/* Homepage-only intro. The landing page stays available without JavaScript. */
+#spinner.home-intro {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1.25rem;
+  background: radial-gradient(ellipse at 50% 42%, #361018 0%, #100a0e 42%, #060608 75%);
+  color: #fff6ee;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 600ms ease, visibility 0s linear 600ms;
+}
+
+#spinner.home-intro.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: none;
+}
+
+.home-intro__content { width: min(100%, 36rem); text-align: center; }
+.home-intro__emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(180px, 29vw, 280px);
+  aspect-ratio: 1;
+  margin: 0 auto 1.5rem;
+}
+.home-intro__emblem img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 14px 30px #0009);
+}
+.home-intro__ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #ff31584d;
+  border-top-color: #ff7189;
+  border-bottom-color: #ff7189;
+  border-radius: 50%;
+  box-shadow: 0 0 60px #ff24481a, inset 0 0 40px #ff24480d;
+}
+.home-intro__eyebrow {
+  margin: 0 0 0.6rem;
+  color: #ff9eae;
+  font: 700 0.65rem/1.5 'Inter', sans-serif;
+  letter-spacing: 0.28em;
+}
+.home-intro__title {
+  margin: 0;
+  color: #fff6ee;
+  font: 800 clamp(2.7rem, 8vw, 5rem)/1.05 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.025em;
+}
+.home-intro__title span { color: #ff3158; }
+.home-intro__tagline {
+  margin: 1rem 0 0;
+  color: #d6c4c9;
+  font: 400 clamp(0.75rem, 2.8vw, 0.9rem)/1.6 'Inter', sans-serif;
+  letter-spacing: 0.06em;
+}
+.home-intro__line {
+  display: block;
+  width: 5rem;
+  height: 2px;
+  margin: 1.75rem auto 0;
+  background: #ff3158;
+  box-shadow: 0 0 16px #ff315880;
+}
+.home-intro__skip {
+  position: absolute;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border: 1px solid #ffffff40;
+  border-radius: 3px;
+  background: #ffffff08;
+  color: #f1e7eb;
+  font: 500 0.8rem/1.5 'Inter', sans-serif;
+  cursor: pointer;
+}
+.home-intro__skip span { margin-left: 0.75rem; }
+.home-intro__skip:hover { background: #ffffff15; }
+.home-intro__skip:focus-visible { outline: 2px solid #ff7189; outline-offset: 4px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-intro.show .home-intro__emblem {
+    animation: intro-pop 750ms cubic-bezier(.2,.8,.25,1.15) both;
+  }
+  .home-intro.show .home-intro__ring { animation: intro-ring 1600ms ease-out both; }
+  .home-intro.show .home-intro__eyebrow,
+  .home-intro.show .home-intro__title,
+  .home-intro.show .home-intro__tagline {
+    animation: intro-copy 550ms ease-out 200ms both;
+  }
+  .home-intro.show .home-intro__title { animation-delay: 300ms; }
+  .home-intro.show .home-intro__tagline { animation-delay: 420ms; }
+  .home-intro.show .home-intro__line { animation: intro-line 800ms ease-out 450ms both; }
+  .intro-active .carousel-redesign * { animation-play-state: paused !important; }
+  .intro-revealing .carousel-redesign { animation: intro-landing 650ms cubic-bezier(.22,1,.36,1) both; }
+}
+
+@keyframes intro-pop {
+  from { opacity: 0; transform: scale(0.72) translateY(16px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes intro-ring {
+  from { opacity: 0; transform: scale(0.85) rotate(-35deg); }
+  to { opacity: 1; transform: scale(1) rotate(25deg); }
+}
+@keyframes intro-copy {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes intro-line {
+  from { opacity: 0; transform: scaleX(0); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+@keyframes intro-landing {
+  from { opacity: 0.6; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767.98px) {
+  .home-intro__emblem { margin-bottom: 1rem; }
+  .home-intro__line { margin-top: 1.25rem; }
+  #spinner.home-intro { transition-duration: 400ms, 0s; transition-delay: 0s, 400ms; }
+}
+@media (max-height: 500px) {
+  .home-intro__emblem { width: 120px; margin-bottom: 0.5rem; }
+  .home-intro__title { font-size: 2.5rem; }
+  .home-intro__tagline { margin-top: 0.5rem; }
+  .home-intro__line { margin-top: 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #spinner.home-intro { display: none; transition: none; }
+  .intro-revealing .carousel-redesign { animation: none; }
+}
