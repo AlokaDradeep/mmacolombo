@@ -3,10 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Grading Results | MMA Colombo Combat Club</title>
+    <title>MMA Grading System &amp; Results | MMA Colombo Combat Club</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View White Level and Yellow Level student grading results from MMA Colombo Combat Club.">
+    <meta name="description" content="Explore MMA Colombo's nine-level club grading system, from White to Black, four training categories, A/B/C/Fail assessments, coaching career pathway and student results.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://mmacolombo.com/gradings.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MMA Colombo Combat Club">
+    <meta property="og:url" content="https://mmacolombo.com/gradings.html">
+    <meta property="og:title" content="MMA Grading System &amp; Results | MMA Colombo Combat Club">
+    <meta property="og:description" content="Nine levels. Four training categories. One path from student development towards a coaching career. Discover MMA Colombo's members-only grading system.">
+    <meta property="og:image" content="https://mmacolombo.com/img/wattala%20grading%2001.jpeg">
+    <meta property="og:image:alt" content="MMA Colombo students at a club grading session">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -14,6 +23,72 @@
     <link rel="icon" href="img/mmacolombo_logo-removebg-preview.png" type="image/png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/gradings.css" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://mmacolombo.com/gradings.html#webpage",
+          "url": "https://mmacolombo.com/gradings.html",
+          "name": "MMA Grading System & Results | MMA Colombo Combat Club",
+          "description": "MMA Colombo Combat Club's grading system is exclusively for its students, with nine levels from White to Black, four training categories, A/B/C/Fail assessments and a pathway towards coaching.",
+          "inLanguage": "en-LK",
+          "isPartOf": { "@id": "https://mmacolombo.com/#website" },
+          "about": { "@id": "https://mmacolombo.com/#organization" },
+          "breadcrumb": { "@id": "https://mmacolombo.com/gradings.html#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://mmacolombo.com/gradings.html#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmacolombo.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Gradings", "item": "https://mmacolombo.com/gradings.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://mmacolombo.com/gradings.html#grading-faq",
+          "isPartOf": { "@id": "https://mmacolombo.com/gradings.html#webpage" },
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the MMA Colombo grading system?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "MMA Colombo Combat Club offers a structured, nine-level grading system exclusively for students training at the club. The levels are White, Yellow, Orange, Red, Green, Blue, Purple, Brown and Black. Training covers four categories: Striking, Grappling, Fitness, and Pad Training & Sparring. Assessment outcomes are A, B, C or Fail. The system supports student development and a pathway towards a coaching career."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which martial arts are included in the grading system?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Striking draws on Muay Thai, Kickboxing, Sanda, Boxing and Combat Sambo. Grappling draws on Brazilian Jiu-Jitsu (BJJ), Judo, Combat Sambo and Wrestling. Fitness, pad training and sparring complete the four training categories."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who can take part in MMA Colombo gradings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The grading programme is exclusively for students training at MMA Colombo Combat Club. Current students can speak to their coach about preparation and grading arrangements. Prospective students can contact the club about joining."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the grading system support a coaching career?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Alongside developing martial arts skills, MMA Colombo's grading system is designed to help committed students work towards becoming coaches and developing a coaching career. Speak to the club's coaches about the training and requirements for this pathway."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
     <style>
         body.gradings-page .page-hero {
             min-height: 0;
@@ -115,15 +190,149 @@
             <div class="container">
                 <div class="hero-copy">
                     <span class="hero-kicker">MMA Colombo Combat Club</span>
-                    <h1>Grading Results</h1>
-                    <p>See the students who completed their White Level and Yellow Level gradings.</p>
+                    <h1>Earn your level.<br>Build your future.</h1>
+                    <p>MMA Colombo's grading system brings together nine levels, four training categories and a pathway towards a coaching career. Exclusively for students training at our club.</p>
+                    <div class="hero-actions">
+                        <a href="#grading-system" class="btn btn-danger px-4 py-3">Explore the system</a>
+                        <a href="#student-results" class="btn btn-outline-light px-4 py-3">View student results</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="mma-section mma-section--panel content-dark" aria-labelledby="grading-levels">
+        <section id="grading-system" class="mma-section content-dark" aria-labelledby="grading-system-title">
+            <div class="container">
+                <div class="grading-overview">
+                    <div>
+                        <span class="eyebrow">The MMA Colombo grading system</span>
+                        <h2 id="grading-system-title">A complete approach<br>to martial arts progression.</h2>
+                    </div>
+                    <div class="grading-overview__copy">
+                        <p><strong>&ldquo;The most advanced MMA grading system in the world today.&rdquo;</strong><br>&mdash; MMA Colombo Combat Club</p>
+                        <p>Our advanced club grading programme combines striking, grappling, physical fitness and practical application in one structured journey. Students progress from White Level to Black Level, with assessment outcomes recorded as A, B, C or Fail.</p>
+                        <p>Developed for MMA Colombo Combat Club students, the system supports both personal progress in martial arts and the ambition to train as a coach and build a coaching career.</p>
+                        <span class="grading-members"><i class="fas fa-users" aria-hidden="true"></i> Exclusively for MMA Colombo students</span>
+                    </div>
+                </div>
+
+                <div class="grading-progression" aria-labelledby="progression-title">
+                    <div class="grading-block-heading">
+                        <h3 id="progression-title">Your nine-level journey</h3>
+                        <span>White to Black</span>
+                    </div>
+                    <ol class="grading-level-track">
+                        <li style="--level-color: #f4f1eb"><span class="grading-level-track__number">01</span><strong>White</strong></li>
+                        <li style="--level-color: #f2ce38"><span class="grading-level-track__number">02</span><strong>Yellow</strong></li>
+                        <li style="--level-color: #ee8c32"><span class="grading-level-track__number">03</span><strong>Orange</strong></li>
+                        <li style="--level-color: #eb4444"><span class="grading-level-track__number">04</span><strong>Red</strong></li>
+                        <li style="--level-color: #42b875"><span class="grading-level-track__number">05</span><strong>Green</strong></li>
+                        <li style="--level-color: #4b93ed"><span class="grading-level-track__number">06</span><strong>Blue</strong></li>
+                        <li style="--level-color: #b080e5"><span class="grading-level-track__number">07</span><strong>Purple</strong></li>
+                        <li style="--level-color: #ba885e"><span class="grading-level-track__number">08</span><strong>Brown</strong></li>
+                        <li style="--level-color: #17191e"><span class="grading-level-track__number">09</span><strong>Black</strong></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="mma-section content-dark" aria-labelledby="training-categories-title">
+            <div class="container">
+                <div class="grading-section-heading">
+                    <span class="eyebrow">Four training categories</span>
+                    <h2 id="training-categories-title">Train across the complete skill set.</h2>
+                    <p>Our grading programme brings together complementary disciplines, conditioning and practical training.</p>
+                </div>
+                <div class="grading-category-grid">
+                    <article class="grading-category">
+                        <span class="grading-category__number" aria-hidden="true">01</span>
+                        <h3>Striking</h3>
+                        <p>Build your stand-up skills through a combination of striking disciplines.</p>
+                        <ul class="grading-disciplines" aria-label="Striking disciplines">
+                            <li>Muay Thai</li><li>Kickboxing</li><li>Sanda</li><li>Boxing</li><li>Combat Sambo</li>
+                        </ul>
+                    </article>
+                    <article class="grading-category">
+                        <span class="grading-category__number" aria-hidden="true">02</span>
+                        <h3>Grappling</h3>
+                        <p>Develop your grappling skills through ground-based and standing disciplines.</p>
+                        <ul class="grading-disciplines" aria-label="Grappling disciplines">
+                            <li>Brazilian Jiu-Jitsu (BJJ)</li><li>Judo</li><li>Combat Sambo</li><li>Wrestling</li>
+                        </ul>
+                    </article>
+                    <article class="grading-category">
+                        <span class="grading-category__number" aria-hidden="true">03</span>
+                        <h3>Fitness</h3>
+                        <p>Develop the physical foundation to support your martial arts training and continued progression.</p>
+                        <span class="grading-category__caption">Physical preparation for your journey</span>
+                    </article>
+                    <article class="grading-category">
+                        <span class="grading-category__number" aria-hidden="true">04</span>
+                        <h3>Pad Training &amp; Sparring</h3>
+                        <p>Put your training into practice through pad work and sparring as part of the club's grading programme.</p>
+                        <span class="grading-category__caption">Bringing your skills together</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="mma-section content-dark" aria-labelledby="assessment-title">
+            <div class="container">
+                <div class="grading-overview">
+                    <div>
+                        <span class="eyebrow">Assessment outcomes</span>
+                        <h2 id="assessment-title">Every level.<br>A clear result.</h2>
+                    </div>
+                    <div class="grading-overview__copy">
+                        <p>Within the grading system, assessment outcomes are classified as <strong>A, B, C or Fail</strong>. Your colour level records your stage in the programme; your grade records the assessment outcome.</p>
+                        <ul class="grading-outcomes" aria-label="Assessment outcomes">
+                            <li>A</li><li>B</li><li>C</li><li class="grading-outcomes__fail">Fail</li>
+                        </ul>
+                        <p class="mb-0">Speak to your coach about preparation, assessment criteria and the requirements for your next level.</p>
+                    </div>
+                </div>
+                <div class="grading-career" aria-labelledby="coaching-path-title">
+                    <div>
+                        <span class="eyebrow">A future in coaching</span>
+                        <h2 id="coaching-path-title">From student ambition<br>to a coaching career.</h2>
+                        <p>Our grading system is designed to help committed students develop towards becoming coaches. Alongside your own training, explore a longer-term pathway to guiding others and building a career in coaching.</p>
+                        <a href="/contact.html" class="btn btn-danger px-4 py-3">Ask about the coaching pathway</a>
+                    </div>
+                    <figure class="grading-career__image">
+                        <img src="img/wattala%2001%20grading.jpeg" alt="MMA Colombo club members at a grading session" width="1280" height="721" loading="lazy" decoding="async">
+                        <figcaption>Train. Progress. Work towards coaching.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section id="grading-faq" class="mma-section content-dark" aria-labelledby="grading-faq-title">
+            <div class="container grading-faq">
+                <span class="eyebrow">Your questions, answered</span>
+                <h2 id="grading-faq-title">About our grading programme</h2>
+                <details open>
+                    <summary>What is the MMA Colombo grading system?</summary>
+                    <p>MMA Colombo Combat Club offers a structured, nine-level grading system exclusively for students training at the club. The levels are White, Yellow, Orange, Red, Green, Blue, Purple, Brown and Black. Training covers four categories: Striking, Grappling, Fitness, and Pad Training &amp; Sparring. Assessment outcomes are A, B, C or Fail. The system supports student development and a pathway towards a coaching career.</p>
+                </details>
+                <details>
+                    <summary>Which martial arts are included in the grading system?</summary>
+                    <p>Striking draws on Muay Thai, Kickboxing, Sanda, Boxing and Combat Sambo. Grappling draws on Brazilian Jiu-Jitsu (BJJ), Judo, Combat Sambo and Wrestling. Fitness, pad training and sparring complete the four training categories.</p>
+                </details>
+                <details>
+                    <summary>Who can take part in MMA Colombo gradings?</summary>
+                    <p>The grading programme is exclusively for students training at MMA Colombo Combat Club. Current students can speak to their coach about preparation and grading arrangements. Prospective students can <a href="/contact.html">contact the club about joining</a>.</p>
+                </details>
+                <details>
+                    <summary>Does the grading system support a coaching career?</summary>
+                    <p>Yes. Alongside developing martial arts skills, MMA Colombo's grading system is designed to help committed students work towards becoming coaches and developing a coaching career. Speak to the club's coaches about the training and requirements for this pathway.</p>
+                </details>
+            </div>
+        </section>
+
+        <section id="student-results" class="mma-section mma-section--panel content-dark" aria-labelledby="grading-levels">
             <div class="container grading-results">
-                <h2 id="grading-levels" class="mb-3">Student Gradings</h2>
+                <span class="eyebrow">Club grading results</span>
+                <h2 id="grading-levels" class="mb-3">Student Grading Results</h2>
+                <p>Browse the published White Level and Yellow Level results below.</p>
                 <div id="grading-tabs" hidden>
                     <div class="d-flex flex-wrap gap-2 mb-3" role="tablist" aria-labelledby="grading-levels">
                         <button type="button" class="btn btn-outline-light rounded-pill px-4" id="white-level-tab"
@@ -420,7 +629,7 @@
                 <p><a class="footer-link" href="/about.html">About MMA Colombo</a></p>
                 <p><a class="footer-link" href="/wattala.html">Wattala Classes</a></p>
                 <p><a class="footer-link" href="/nugegoda.html">Nugegoda Classes</a></p>
-                <p><a class="footer-link" href="/gradings.html">Grading Results</a></p>
+                <p><a class="footer-link" href="/gradings.html">Grading System &amp; Results</a></p>
                 <p><a class="footer-link" href="/contact.html">Contact and Schedule</a></p>
             </div>
             <div class="footer-box">
