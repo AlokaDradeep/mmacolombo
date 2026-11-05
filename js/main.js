@@ -110,15 +110,16 @@
     initWow();
     initStickyNavbar();
     initSiteNavigation();
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     initCarousel('.header-carousel', {
-        rtl: true,
+        rtl: false,
         items: 1,
         margin: 0,
         stagePadding: 0,
-        autoplay: true,
-        autoplayTimeout: 5000,
+        autoplay: !reducedMotion.matches,
+        autoplayTimeout: 2000,
         autoplayHoverPause: true,
-        smartSpeed: 700,
+        smartSpeed: reducedMotion.matches ? 0 : 900,
         mouseDrag: true,
         touchDrag: true,
         pullDrag: true,
@@ -131,17 +132,50 @@
         ],
         responsive: {
             0: {
-                autoplay: true,
+                autoplay: !reducedMotion.matches,
                 loop: true,
                 nav: false
             },
             768: {
-                autoplay: true,
+                autoplay: !reducedMotion.matches,
                 loop: true,
                 nav: true
             }
         }
     });
+    var heroCarousel = $('.header-carousel');
+    var motionToggle = $('.carousel-motion-toggle');
+    var paused = reducedMotion.matches;
+
+    function updateHeroPlayback() {
+        heroCarousel.trigger(paused ? 'stop.owl.autoplay' : 'play.owl.autoplay', [2000]);
+        motionToggle.text(paused ? 'Play' : 'Pause')
+            .attr('aria-label', paused ? 'Play slideshow' : 'Pause slideshow')
+            .attr('aria-pressed', String(paused));
+    }
+
+    motionToggle.on('click', function () {
+        paused = !paused;
+        updateHeroPlayback();
+    });
+    heroCarousel.on('focusin', function () { heroCarousel.trigger('stop.owl.autoplay'); });
+    heroCarousel.on('focusout', function () {
+        window.setTimeout(function () {
+            if (!heroCarousel[0].contains(document.activeElement)) updateHeroPlayback();
+        }, 0);
+    });
+    $(document).on('visibilitychange', function () {
+        if (!document.hidden && !paused) {
+            heroCarousel.trigger('stop.owl.autoplay');
+            updateHeroPlayback();
+        }
+    });
+    reducedMotion.addEventListener('change', function () {
+        paused = reducedMotion.matches;
+        updateHeroPlayback();
+    });
+    updateHeroPlayback();
+
     initCarousel('.blog-carousel', {
         autoplay: true,
         smartSpeed: 1500,
