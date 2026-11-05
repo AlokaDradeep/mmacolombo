@@ -243,6 +243,116 @@
                                     <td>B</td>
                                     <td>Pass</td>
                                 </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">P</span>
+                                            <span data-student-name>Praneeth</span>
+                                        </div>
+                                    </th>
+                                    <td>973381474V</td>
+                                    <td>C</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">I</span>
+                                            <span data-student-name>Ifaz</span>
+                                        </div>
+                                    </th>
+                                    <td>942020937V</td>
+                                    <td>B</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">B</span>
+                                            <span data-student-name>Binath</span>
+                                        </div>
+                                    </th>
+                                    <td>200430000298</td>
+                                    <td>A</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">D</span>
+                                            <span data-student-name>Dilukshan</span>
+                                        </div>
+                                    </th>
+                                    <td>199715101079</td>
+                                    <td>B</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">SA</span>
+                                            <span data-student-name>Shoheth Asher Costa</span>
+                                        </div>
+                                    </th>
+                                    <td>200719501621</td>
+                                    <td>B</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">H</span>
+                                            <span data-student-name>Hashood</span>
+                                        </div>
+                                    </th>
+                                    <td>200713500644</td>
+                                    <td>A</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">N</span>
+                                            <span data-student-name>Naffaz</span>
+                                        </div>
+                                    </th>
+                                    <td>&mdash;</td>
+                                    <td>A</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">S</span>
+                                            <span data-student-name>Saasil</span>
+                                        </div>
+                                    </th>
+                                    <td>&mdash;</td>
+                                    <td>B</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">V</span>
+                                            <span data-student-name>Vinith</span>
+                                        </div>
+                                    </th>
+                                    <td>&mdash;</td>
+                                    <td>B</td>
+                                    <td>Pass</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="grading-results__photo" aria-hidden="true">J</span>
+                                            <span data-student-name>Jeshan <small class="fw-normal">(Only Boxing)</small></span>
+                                        </div>
+                                    </th>
+                                    <td>200611104829</td>
+                                    <td>A</td>
+                                    <td>Pass</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -364,7 +474,7 @@
             const rows = Array.from(panel.querySelectorAll('tbody tr'));
             const matches = rows.filter((row) => {
                 const name = row.querySelector('[data-student-name]').textContent.toLowerCase();
-                const nic = row.cells[1].textContent.trim();
+                const nic = row.cells[1].textContent.trim().toLowerCase();
                 return name.includes(query) || nic.includes(query);
             });
 
