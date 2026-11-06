@@ -1,4 +1,4 @@
-/* Homepage-only intro. The landing page stays available without JavaScript. */
+/* Shared site intro. Every page stays available without JavaScript. */
 #spinner.home-intro {
   position: fixed;
   inset: 0;
@@ -74,22 +74,6 @@
   background: #ff3158;
   box-shadow: 0 0 16px #ff315880;
 }
-.home-intro__skip {
-  position: absolute;
-  right: max(1.25rem, env(safe-area-inset-right));
-  bottom: max(1.25rem, env(safe-area-inset-bottom));
-  min-height: 44px;
-  padding: 0.65rem 1rem;
-  border: 1px solid #ffffff40;
-  border-radius: 3px;
-  background: #ffffff08;
-  color: #f1e7eb;
-  font: 500 0.8rem/1.5 'Inter', sans-serif;
-  cursor: pointer;
-}
-.home-intro__skip span { margin-left: 0.75rem; }
-.home-intro__skip:hover { background: #ffffff15; }
-.home-intro__skip:focus-visible { outline: 2px solid #ff7189; outline-offset: 4px; }
 
 @media (prefers-reduced-motion: no-preference) {
   .home-intro.show .home-intro__emblem {

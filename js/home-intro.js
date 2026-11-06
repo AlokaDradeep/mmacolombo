@@ -7,7 +7,6 @@
     var root = document.documentElement;
     var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     var mobile = window.matchMedia('(max-width: 767.98px)').matches;
-    var skip = intro.querySelector('.home-intro__skip');
     var finished = false;
     var dismissTimer;
     var safetyTimer;
@@ -20,12 +19,11 @@
         root.classList.remove('intro-active');
         if (!immediate) root.classList.add('intro-revealing');
         intro.classList.remove('show');
-        skip.tabIndex = -1;
 
         if (intro.contains(document.activeElement)) {
             var home = document.querySelector('.site-brand');
             if (home) home.focus({ preventScroll: true });
-            else skip.blur();
+            else document.activeElement.blur();
         }
         intro.setAttribute('aria-hidden', 'true');
         if (immediate) intro.remove();
@@ -63,8 +61,6 @@
     root.classList.add('intro-active');
     intro.classList.add('show');
     intro.setAttribute('aria-hidden', 'false');
-    skip.tabIndex = 0;
-    skip.addEventListener('click', function () { finish(false); });
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('focusin', onFocus);
     window.addEventListener('pagehide', onPageHide);

@@ -29,6 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -37,6 +38,7 @@
     <link rel="icon" href="img/mmacolombo_logo-removebg-preview.png" type="image/png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/home-intro.css" rel="stylesheet">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -106,21 +108,20 @@
 </head>
 
 <body>
-    <div id="spinner" class="position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="site-loader" role="status" aria-live="polite" aria-label="Loading MMA Colombo website">
-            <div class="site-loader__halo"></div>
-            <div class="site-loader__ring site-loader__ring--outer"></div>
-            <div class="site-loader__ring site-loader__ring--inner"></div>
-            <div class="site-loader__core">
-                <span class="site-loader__brand">MMA</span>
+    <!-- Site intro: hidden unless its independent script starts successfully. -->
+    <div id="spinner" class="home-intro" aria-hidden="true">
+        <div class="home-intro__content">
+            <div class="home-intro__emblem" aria-hidden="true">
+                <span class="home-intro__ring"></span>
+                <img src="img/logo background removed.webp" alt="" width="614" height="407" decoding="async">
             </div>
-            <div class="site-loader__copy">
-                <strong>MMA COLOMBO</strong>
-                <span>Preparing your training ground</span>
-            </div>
-            <span class="sr-only">Loading...</span>
+            <p class="home-intro__eyebrow">WELCOME TO THE TEAM</p>
+            <p class="home-intro__title">MMA <span>COLOMBO</span></p>
+            <p class="home-intro__tagline">Discipline. Strength. Confidence.</p>
+            <span class="home-intro__line" aria-hidden="true"></span>
         </div>
     </div>
+    <script src="js/home-intro.js"></script>
 
     <div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
         <div class="row gx-0 align-items-center">

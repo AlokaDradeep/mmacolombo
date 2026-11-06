@@ -19,10 +19,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="icon" href="img/mmacolombo_logo-removebg-preview.png" type="image/png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/home-intro.css" rel="stylesheet">
     <link href="css/gradings.css" rel="stylesheet">
     <script type="application/ld+json">
     {
@@ -131,6 +133,21 @@
 </head>
 
 <body class="gradings-page">
+    <!-- Site intro: hidden unless its independent script starts successfully. -->
+    <div id="spinner" class="home-intro" aria-hidden="true">
+        <div class="home-intro__content">
+            <div class="home-intro__emblem" aria-hidden="true">
+                <span class="home-intro__ring"></span>
+                <img src="img/logo background removed.webp" alt="" width="614" height="407" decoding="async">
+            </div>
+            <p class="home-intro__eyebrow">WELCOME TO THE TEAM</p>
+            <p class="home-intro__title">MMA <span>COLOMBO</span></p>
+            <p class="home-intro__tagline">Discipline. Strength. Confidence.</p>
+            <span class="home-intro__line" aria-hidden="true"></span>
+        </div>
+    </div>
+    <script src="js/home-intro.js"></script>
+
     <div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
         <div class="row gx-0 align-items-center">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
@@ -208,7 +225,7 @@
                         <h2 id="grading-system-title">A complete approach<br>to martial arts progression.</h2>
                     </div>
                     <div class="grading-overview__copy">
-                        <p><strong>&ldquo;The most advanced MMA grading system in the world today.&rdquo;</strong><br>&mdash; MMA Colombo Combat Club</p>
+                        <p><strong>&ldquo;The most advanced MMA grading system in the world today.&rdquo;</strong></p>
                         <p>Our advanced club grading programme combines striking, grappling, physical fitness and practical application in one structured journey. Students progress from White Level to Black Level, with assessment outcomes recorded as A, B, C or Fail.</p>
                         <p>Developed for MMA Colombo Combat Club students, the system supports both personal progress in martial arts and the ambition to train as a coach and build a coaching career.</p>
                         <span class="grading-members"><i class="fas fa-users" aria-hidden="true"></i> Exclusively for MMA Colombo students</span>
